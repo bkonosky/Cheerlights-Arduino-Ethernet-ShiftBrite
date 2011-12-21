@@ -1,0 +1,23 @@
+Cheerlights running with an Arduino + Arduino Ethernet Shield + Shiftbrite.
+
+Required:
+
+Arduino 1.0 IDE
+Arduino Duemilanove with ATmega328 or Arduino Uno. Must have the ATmega328 due to Flash and RAM.
+Arduino Ethernet Shield
+ShiftBrite
+
+
+Important constants:
+
+numberSB is the number of ShiftBrites on the chain.
+datapin = DI on the ShiftBrite
+latchpin = LI on the ShiftBrite
+enablepin = EI on the ShiftBrite
+clockpin = CI on the ShiftBrite
+
+stepdivisor is what to divide the number of steps by to adjust the fade
+stepdelay is how much of a delay between steps on the fade
+thingSpeakInterval is how often in ms to contact Thing Speak to get the current color
+
+One note, if you say there's less ShiftBrites on the chain than there really is, it'll look strange. Also, I have not tested it with more than 2 ShiftBrites, but I should.
