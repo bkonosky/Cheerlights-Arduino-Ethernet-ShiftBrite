@@ -15,9 +15,12 @@ datapin = DI on the ShiftBrite
 latchpin = LI on the ShiftBrite
 enablepin = EI on the ShiftBrite
 clockpin = CI on the ShiftBrite
+redlevel, greenlevel, bluelevel is for setting the output level for each channel on the ShiftBrite
 
 stepdivisor is what to divide the number of steps by to adjust the fade
 stepdelay is how much of a delay between steps on the fade
 thingSpeakInterval is how often in ms to contact Thing Speak to get the current color
+
+
 
 One note, if you say there's less ShiftBrites on the chain than there really is, it'll look strange. Also, I have not tested it with more than 2 ShiftBrites, but I should.

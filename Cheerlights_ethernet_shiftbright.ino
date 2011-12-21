@@ -43,12 +43,15 @@
 #include <Ethernet.h>
 
 
-//LED Colors setup
+// ShiftBrite settings.
 #define numberSB 1 //Number of ShiftBrites in the chain
 #define datapin 7 //DI
 #define latchpin 5 //LI
 #define enablepin 6 //EI
 #define clockpin 8 //CI
+#define redlevel 120 // Power level for Red 0-127
+#define bluelevel 100 // Power level for Blue 0-127
+#define greenlevel 100 // Power level for Green 0-127
 
 unsigned long SB_CommandPacket;
 int SB_CommandMode;
@@ -56,6 +59,7 @@ int SB_BlueCommand;
 int SB_RedCommand;
 int SB_GreenCommand;
 
+//LED Colors setup
 const int RED[] = {1000, 0, 0}; 
 const int ORANGE[] = {1000, 500, 0}; 
 const int YELLOW[] = {900, 1000, 0}; 
@@ -118,9 +122,9 @@ void SB_SendPacket() {
 void setColor(int* color) {
    for (int j = 0; j < numberSB; j++) {
      SB_CommandMode = B01; // Write to current control registers
-     SB_RedCommand = 50; // Full current
-     SB_GreenCommand = 50; // Full current
-     SB_BlueCommand = 50; // Full current
+     SB_RedCommand = redlevel; 
+     SB_GreenCommand = greenlevel; 
+     SB_BlueCommand = bluelevel; 
      SB_SendPacket();
    }
    for (int j = 0; j< numberSB; j++) {
